@@ -1,30 +1,23 @@
 import os
-
 os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
 
-
 import streamlit as st
-from kivy.app import App
-import numpy as np
-from PIL import Image as PILImage
+from streamlit.components.v1 import ComponentBase
 
-# Import your Kivy app
-from faceApp import CamApp
+class MyKivyApp(ComponentBase):
+    def __init__(self):
+        super().__init__(key="my_kivy_app")
 
-def run_kivy_app():
-    app = CamApp()  # Create an instance of your Kivy app
-    app.run()
+    def render(self, **kwargs):
+        from faceApp import CamApp  # Assuming your faceApp.py file contains the CamApp class
+        CamApp().run()
 
 def main():
-    st.title("Face Verification Streamlit App")  # Set the title of your Streamlit app
+    st.title("Streamlit + Kivy Facial Verification App")
 
-    # Add any Streamlit components or customizations here
+    # Embed the Kivy app as a Streamlit component
+    kivy_component = MyKivyApp()
+    kivy_component
 
-    st.write("This is a Streamlit app that embeds a Kivy application.")
-    st.write("The Kivy app is running below:")
-
-    # Run your Kivy app within Streamlit
-    run_kivy_app()
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
