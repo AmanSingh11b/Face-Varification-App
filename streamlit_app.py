@@ -1,10 +1,7 @@
-import os
-os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
-
 import streamlit as st
-from streamlit.components.v1 import ComponentBase
+from streamlit.components.v1 import html as components_html
 
-class MyKivyApp(ComponentBase):
+class MyKivyApp(components_html.BaseComponent):
     def __init__(self):
         super().__init__(key="my_kivy_app")
 
