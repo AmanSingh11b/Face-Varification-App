@@ -1,3 +1,8 @@
+import os
+
+os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
+
+
 import streamlit as st
 from kivy.app import App
 import numpy as np
