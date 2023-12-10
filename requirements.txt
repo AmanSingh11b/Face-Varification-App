@@ -1,4 +1,5 @@
 kivy 
-protobuf==3.20.0
+streamlit
+protobuf
 opencv-python-headless==4.5.5.62
-tensorflow==2.6.0
+tensorflow
